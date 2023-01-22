@@ -1,6 +1,9 @@
 from django.http import HttpResponse
+from articles.models import Article
 
 
 def home_view(request):
     # takes request and returns the response
-    return HttpResponse('<h1>Hello world</h1>')
+    article_obj = Article.objects.get(id=1)
+    print(article_obj.__repr__())
+    return HttpResponse(f'{article_obj.content}')
