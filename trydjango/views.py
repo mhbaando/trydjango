@@ -4,14 +4,21 @@ from articles.models import Article
 
 
 def home_view(request):
-    # takes request and returns the response
-    article_obj = Article.objects.get(id=1)
+    # # takes request and returns the response
+    # article_obj = Article.objects.get(id=1)
 
-    # one to render the template
-    html_string = render_to_string('home.html', context=article_obj.__repr__())
+    # # one to render the template
+    # html_string = render_to_string('home.html', context=article_obj.__repr__())
 
-    # we can also render this way
-    tmpl = get_template('home.html')
-    # pass any data here
-    tmpl_srting = tmpl.render(context=article_obj.__repr__())
-    return HttpResponse(tmpl_srting)
+    # # we can also render this way
+    # tmpl = get_template('home.html')
+    # # pass any data here
+    # tmpl_srting = tmpl.render(context=article_obj.__repr__())
+
+    articls_objt = Article.objects.all()
+    context = {
+        'articles': articls_objt
+    }
+
+    html_string = render_to_string('home.html', context=context)
+    return HttpResponse(html_string)

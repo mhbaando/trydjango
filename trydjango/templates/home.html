@@ -6,6 +6,16 @@ Articles
 
 {% block content %}
 <h1>
-    {{title}} -
+    here is all artlces
 </h1>
+
+<ul>
+    {% for article in articles %}
+    <a href="/article/{{article.id}}">
+        <li>
+            {{article.title}}
+        </li>
+    </a>
+    {% endfor %}
+</ul>
 {% endblock %}
