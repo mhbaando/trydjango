@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from . import views
+from .views import home_view
+from articles.views import artice_detail_view
 
 urlpatterns = [
-    path('', views.home_view, name='home'),  # index url home page
+    path('', home_view),  # index url home page
+    path('articles/<int:id>/', artice_detail_view),
     path("admin/", admin.site.urls),
 ]
