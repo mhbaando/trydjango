@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Article Detail
+{% endblock %}
+
+{% block content %}
+{% if article %}
+<h1>hello {{article.title}}</h1>
+{% endif %}
+{% endblock %}
