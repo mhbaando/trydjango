@@ -20,7 +20,7 @@ def home_view(request):
         'articles': articls_objt
     }
 
-    print(id)
+   
 
     html_string = render_to_string('home.html', context=context)
     return HttpResponse(html_string)
