@@ -5,10 +5,12 @@ Login Page
 {% endblock %}
 
 {% block content %}
+{% if not request.user.is_authenticated %}
 <div style="margin-top: 30px;">
-    <form action="/login/" method="POST"> {% csrf_token %}
-        <!-- {% if error %} -->
-        <!-- {% endif %} -->
+    <form method="POST"> {% csrf_token %}
+        {% if error %}
+            <p style="color: red;">{{error}}</p>
+        {% endif%}
         <div>
             <input type="text" name="username" placeholder="username">
         </div>
@@ -16,7 +18,12 @@ Login Page
             <input type="password" name="password" placeholder="password">
         </div>
         <button type="submit">Login</button>
-        <p style="color: red;">{{error}} asohdfahd</p>
     </form>
 </div>
+{% else %}
+<p>Al ready logged in </p>
+<a href="/">Go Home</a>
+<p>or <a href="/logout">log out</a></p>
+{% endif %}
+
 {% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div style="margin-top: 30px;">
+    <form  method="POST"> {% csrf_token %}
+     <p>Are youe sure to logout </p>
+     <button type="submit">Yes! logout</button>
+    </form>
+</div>
+{% else %}
+<p>Not Logged In </p>
+<p>or <a href="/login">log in</a></p>
+{% endif %}
+
+{% endblock %}
