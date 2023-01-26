@@ -7,15 +7,19 @@ Article
 {% block content %}
 
 {% if not created %}
-<form action="/articles/create/" method="POST">
+
+
+<form action="" method="POST">
     <!-- inside the form pass crftoken -->
     {% csrf_token %}
+    <!-- 
   <div style="margin-top: 30px;">
     <input type="text" name="title" id="title" placeholder="Articel Title">
   </div>
    <div style="margin-top: 10px;">
     <textarea name="content" id="content" placeholder="article body"></textarea>
-   </div>
+   </div> -->
+   {{form.as_p}}
     <button type="submit">Create Article</button>
 </form>
 
